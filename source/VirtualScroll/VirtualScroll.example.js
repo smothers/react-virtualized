@@ -122,7 +122,7 @@ export default class VirtualScrollExample extends Component {
           <AutoSizer disableHeight>
             {({ width }) => (
               <VirtualScroll
-                ref='VirtualScroll'
+                ref={(c) => { this._VirtualScroll = c }}
                 className={styles.VirtualScroll}
                 height={virtualScrollHeight}
                 overscanRowCount={overscanRowCount}

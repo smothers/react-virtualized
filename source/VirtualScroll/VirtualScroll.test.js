@@ -397,7 +397,7 @@ describe('VirtualScroll', () => {
       const target = {
         scrollTop: 100
       }
-      rendered.refs.Grid.refs.scrollingContainer = target // HACK to work around _onScroll target check
+      rendered._Grid._scrollingContainer = target // HACK to work around _onScroll target check
       Simulate.scroll(findDOMNode(rendered), { target })
       expect(onScrollCalls[onScrollCalls.length - 1]).toEqual({
         clientHeight: 100,
@@ -416,9 +416,9 @@ describe('VirtualScroll', () => {
         rowHeight: () => 20,
         width: 0
       }))
-      expect(rendered.refs.Grid._rowSizeAndPositionManager.getTotalSize()).toEqual(150)
+      expect(rendered._Grid._rowSizeAndPositionManager.getTotalSize()).toEqual(150)
       rendered.measureAllRows()
-      expect(rendered.refs.Grid._rowSizeAndPositionManager.getTotalSize()).toEqual(200)
+      expect(rendered._Grid._rowSizeAndPositionManager.getTotalSize()).toEqual(200)
     })
   })
 

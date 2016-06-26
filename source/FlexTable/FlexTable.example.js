@@ -164,7 +164,7 @@ export default class FlexTableExample extends Component {
           <AutoSizer disableHeight>
             {({ width }) => (
               <FlexTable
-                ref='Table'
+                ref={(c) => { this._Table = c }}
                 disableHeader={disableHeader}
                 headerClassName={styles.headerColumn}
                 headerHeight={headerHeight}

@@ -113,17 +113,17 @@ export default class VirtualScroll extends Component {
   }
 
   forceUpdateGrid () {
-    this.refs.Grid.forceUpdate()
+    this._Grid.forceUpdate()
   }
 
   /** See Grid#measureAllCells */
   measureAllRows () {
-    this.refs.Grid.measureAllCells()
+    this._Grid.measureAllCells()
   }
 
   /** See Grid#recomputeGridSize */
   recomputeRowHeights (index = 0) {
-    this.refs.Grid.recomputeGridSize({
+    this._Grid.recomputeGridSize({
       rowIndex: index
     })
     this.forceUpdateGrid()
@@ -155,7 +155,7 @@ export default class VirtualScroll extends Component {
 
     return (
       <Grid
-        ref='Grid'
+        ref={(c) => { this._Grid = c }}
         aria-label={this.props['aria-label']}
         className={classNames}
         cellRenderer={this._cellRenderer}
